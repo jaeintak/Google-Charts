@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Korean Population'],
+          ['China', 250],
+          ['United States', 220],
+          ['Japan', 8.5],
+          ['Canada', 2.2],
+          ['Uzbekistan', 1.8],
+          ['Russia', 1.6],
+          ['Australia', 1.5],
+          ['Vietnam', 1.0],
+          ['Kazakhstan', 1.0],
+          ['Philippines', 0.8]
+        ]);
+
+        var options = {
+          'backgroundColor': '#ADD8E6'
+
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
